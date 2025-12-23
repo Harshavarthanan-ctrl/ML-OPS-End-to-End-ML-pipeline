@@ -1,112 +1,64 @@
-🚀 End-to-End MLOps Pipeline – Fraud Detection System
-📌 Overview
+# 🚀 End-to-End MLOps Pipeline – Fraud Detection System
 
-This project implements a production-style MLOps pipeline for detecting fraudulent credit card transactions.
-It demonstrates the complete lifecycle of a machine learning system, including data preprocessing, model training, experiment tracking, artifact management, and real-time inference via a REST API.
+## 📌 Overview
+This project implements a **production-style MLOps pipeline** for detecting fraudulent credit card transactions.  
+It demonstrates the **complete lifecycle of a machine learning system**, including data preprocessing, model training, experiment tracking, artifact management, and real-time inference via a REST API.
 
-The focus of this project is operationalizing machine learning, not just building a model.
+The focus of this project is **operationalizing machine learning**, not just building a model.
 
-✨ Key Highlights
+---
 
-End-to-end ML pipeline (train → track → serve)
+## ✨ Key Highlights
+- End-to-end ML pipeline (train → track → serve)
+- Experiment tracking with **MLflow**
+- Clear separation of code, data, and model artifacts
+- Real-time inference using **FastAPI**
+- Input validation with **Pydantic**
+- Health-check endpoint for monitoring
+- Interactive API documentation via **Swagger (OpenAPI)**
+- Docker-ready architecture for deployment
 
-Experiment tracking with MLflow
 
-Clear separation of code, data, and model artifacts
+---
 
-Real-time inference using FastAPI
+## 📊 Dataset
+- **Dataset:** Credit Card Fraud Detection  
+- **Transactions:** ~284,000  
+- **Fraud cases:** 492 (highly imbalanced)  
+- **Features:** 30 numerical features (PCA-transformed)  
+- **Target:** `Class` (0 = Normal, 1 = Fraud)
 
-Input validation with Pydantic
+---
 
-Health-check endpoint for monitoring
+## ⚙️ Tech Stack
+- **Language:** Python 3.10  
+- **Machine Learning:** Scikit-learn (Random Forest)  
+- **MLOps:** MLflow  
+- **API:** FastAPI, Uvicorn  
+- **Validation:** Pydantic  
+- **Documentation:** Swagger / OpenAPI  
 
-Interactive API documentation via Swagger (OpenAPI)
+---
 
-Docker-ready architecture for deployment
+## 🚀 How to Run Locally
 
-🏗️ Architecture Overview
-Raw Data
-   ↓
-Data Preprocessing
-   ↓
-Model Training (Random Forest)
-   ↓
-MLflow Experiment Tracking
-   ↓
-Model Artifact (/models/model.pkl)
-   ↓
-FastAPI Inference Service
-
-📂 Project Structure
-ML OPS End-to-End ML pipeline/
-│
-├── api/
-│   └── main.py            # FastAPI inference service
-│
-├── src/
-│   ├── train.py           # Model training + MLflow logging
-│   └── preprocess.py      # Data preprocessing
-│
-├── models/
-│   └── model.pkl          # Trained model artifact
-│
-├── data/
-│   └── raw/
-│       └── creditcard.csv # Dataset
-│
-├── requirements.txt
-├── Dockerfile
-├── .dockerignore
-├── LICENSE
-└── README.md
-
-📊 Dataset
-
-Dataset: Credit Card Fraud Detection
-
-Transactions: ~284,000
-
-Fraud cases: 492 (highly imbalanced)
-
-Features: 30 numerical features (PCA-transformed)
-
-Target: Class (0 = Normal, 1 = Fraud)
-
-⚙️ Tech Stack
-
-Language: Python 3.10
-
-Machine Learning: Scikit-learn (Random Forest)
-
-MLOps: MLflow
-
-API: FastAPI, Uvicorn
-
-Validation: Pydantic
-
-Documentation: Swagger / OpenAPI
-
-🚀 How to Run Locally
-1️⃣ Create & activate virtual environment
+### 1️⃣ Create & activate virtual environment
+```powershell
 python -m venv venv
 venv\Scripts\activate
 
-2️⃣ Install dependencies
+Install dependencies
 pip install -r requirements.txt
 
-3️⃣ Train the model
+Train the model
 python src/train.py
 
-
-This will:
-
+(This will:
 Train the model
-
 Log metrics to MLflow
+Save the model to models/model.pkl)
 
-Save the model to models/model.pkl
-
-4️⃣ Start the API
+Start the API
 venv\Scripts\python.exe -m uvicorn api.main:app --reload
 
 🌐 API Endpoints
