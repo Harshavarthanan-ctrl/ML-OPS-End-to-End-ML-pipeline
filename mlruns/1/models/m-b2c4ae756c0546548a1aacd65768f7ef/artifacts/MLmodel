@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/harsh/OneDrive/Documents/harsha/Project/ML OPS End-to-End
+  ML pipeline/mlruns/1/models/m-b2c4ae756c0546548a1aacd65768f7ef/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.11
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.8.0
+model_id: m-b2c4ae756c0546548a1aacd65768f7ef
+model_size_bytes: 1740412
+model_uuid: m-b2c4ae756c0546548a1aacd65768f7ef
+prompts: null
+run_id: 41ca4e31ec7246ee8815c8a4742f6a0a
+utc_time_created: '2025-12-23 04:52:50.337641'
